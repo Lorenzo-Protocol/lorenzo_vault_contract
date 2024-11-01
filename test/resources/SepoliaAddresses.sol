@@ -10,7 +10,7 @@ contract SepoliaAddresses {
     address public dev1Address = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
     address public liquidPayoutAddress = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
 
-    address public balancerVault = 0x0000000000000000000000000000000000000000;      // Padding
+    address public balancerVault = 0x0000000000000000000000000000000000000000; // Padding
 
     // ERC20s
     ERC20 public WETH = ERC20(0x2c80132c3f2826640C2A52c1ecEF8949fedf2161);
@@ -23,5 +23,4 @@ contract SepoliaAddresses {
 
     // Uniswap V3
     address public uniswapV3NonFungiblePositionManager = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
-
 }

@@ -9,7 +9,6 @@ import "forge-std/Script.sol";
  *  source .env && forge script test/mocks/MockToken.s.sol:MockTokenScript --evm-version london --slow --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
  */
 contract MockTokenScript is Script {
-
     uint256 public privateKey;
 
     function setUp() external {
@@ -24,5 +23,4 @@ contract MockTokenScript is Script {
         new MockTBTC();
         new MockCBBTC();
     }
-
 }
