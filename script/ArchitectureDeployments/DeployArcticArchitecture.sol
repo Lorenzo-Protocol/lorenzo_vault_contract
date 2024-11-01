@@ -281,7 +281,7 @@ contract DeployArcticArchitecture is Script, ContractNames {
         console.logString(depositAssets[2].asset.symbol());
         console.logAddress(address(accountantParameters.base));
         console.logString(accountantParameters.base.symbol());
-        
+
         if (configureDeployment.setupRoles) {
             // Setup roles.
             // MANAGER_ROLE
