@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.21;
 
-import {ERC20} from "@solmate/tokens/ERC20.sol";
 import {WETH} from "@solmate/tokens/WETH.sol";
+import {MockWBTC, MockTBTC, MockCBBTC} from "src/mock/MockToken.sol";
 import "forge-std/Script.sol";
 
 /**
@@ -20,19 +20,9 @@ contract MockTokenScript is Script {
     function run() external {
         vm.startBroadcast(privateKey);
         new WETH();
-        new MockToken("Wrapped BTC", "WBTC", 8);
-        new MockToken("Tether USD", "USDT", 6);
-        new MockToken("USDC", "USDC", 6);
+        new MockWBTC();
+        new MockTBTC();
+        new MockCBBTC();
     }
 
-}
-
-contract MockToken is ERC20 {
-    constructor(
-        string memory _name,
-        string memory _symbol,
-        uint8 _decimals
-    ) ERC20(_name, _symbol, _decimals) {
-        _mint(msg.sender, 1_000_000 * 10 ** decimals);
-    }
 }

@@ -18,7 +18,6 @@ import {DelayedWithdraw} from "src/base/Roles/DelayedWithdraw.sol";
 import {BoringDrone} from "src/base/Drones/BoringDrone.sol";
 import "forge-std/Script.sol";
 import "forge-std/StdJson.sol";
-import "forge-std/console.sol";
 
 /**
  * @dev Optionally can change `--with-gas-price` to something more reasonable
@@ -272,15 +271,6 @@ contract DeployArcticArchitecture is Script, ContractNames {
                 droneAddresses.push(deployedAddress);
             }
         }
-        console.logUint(depositAssets.length);
-        console.logAddress(address(depositAssets[0].asset));
-        console.logString(depositAssets[0].asset.symbol());
-        console.logAddress(address(depositAssets[1].asset));
-        console.logString(depositAssets[1].asset.symbol());
-        console.logAddress(address(depositAssets[2].asset));
-        console.logString(depositAssets[2].asset.symbol());
-        console.logAddress(address(accountantParameters.base));
-        console.logString(accountantParameters.base.symbol());
 
         if (configureDeployment.setupRoles) {
             // Setup roles.
