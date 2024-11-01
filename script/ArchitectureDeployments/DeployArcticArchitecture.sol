@@ -21,7 +21,6 @@ import "forge-std/StdJson.sol";
 import "forge-std/console.sol";
 
 /**
- *  source .env && forge script script/DeployBoringVaultArctic.s.sol:DeployBoringVaultArcticScript --with-gas-price 30000000000 --slow --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
  * @dev Optionally can change `--with-gas-price` to something more reasonable
  */
 contract DeployArcticArchitecture is Script, ContractNames {
