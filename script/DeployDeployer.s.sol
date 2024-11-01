@@ -4,7 +4,7 @@ pragma solidity 0.8.21;
 import {Deployer} from "src/helper/Deployer.sol";
 import {RolesAuthority, Authority} from "@solmate/auth/authorities/RolesAuthority.sol";
 import {ContractNames} from "resources/ContractNames.sol";
-import {MainnetAddresses} from "test/resources/MainnetAddresses.sol";
+import {SepoliaAddresses} from "test/resources/SepoliaAddresses.sol";
 
 import "forge-std/Script.sol";
 import "forge-std/StdJson.sol";
@@ -13,7 +13,7 @@ import "forge-std/StdJson.sol";
  *  source .env && forge script script/DeployDeployer.s.sol:DeployDeployerScript --evm-version london --slow --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
  * @dev Optionally can change `--with-gas-price` to something more reasonable
  */
-contract DeployDeployerScript is Script, ContractNames, MainnetAddresses {
+contract DeployDeployerScript is Script, ContractNames, SepoliaAddresses {
     uint256 public privateKey;
 
     // Contracts to deploy
@@ -23,8 +23,8 @@ contract DeployDeployerScript is Script, ContractNames, MainnetAddresses {
     uint8 public DEPLOYER_ROLE = 1;
 
     function setUp() external {
-        privateKey = vm.envUint("ETHERFI_LIQUID_DEPLOYER");
-        vm.createSelectFork("fraxtal");
+        privateKey = vm.envUint("SUPER_DEPLOYER");
+        vm.createSelectFork("sepolia");
     }
 
     function run() external {
