@@ -6,7 +6,7 @@ import {MockWBTC, MockTBTC, MockCBBTC} from "src/mock/MockToken.sol";
 import "forge-std/Script.sol";
 
 /**
- *  source .env && forge script test/mocks/MockToken.s.sol:MockTokenScript --evm-version london --slow --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
+ * source .env && forge script test/mocks/MockToken.s.sol:MockTokenScript --evm-version london --slow --with-gas-price 3000000000 --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
  */
 contract MockTokenScript is Script {
     uint256 public privateKey;
