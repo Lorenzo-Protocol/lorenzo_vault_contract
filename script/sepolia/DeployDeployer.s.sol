@@ -10,7 +10,7 @@ import "forge-std/Script.sol";
 import "forge-std/StdJson.sol";
 
 /**
- *  source .env && forge script script/DeployDeployer.s.sol:DeployDeployerScript --evm-version london --slow --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
+ *  source .env && forge script script/sepolia/DeployDeployer.s.sol:DeployDeployerScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify --slow # --evm-version london --with-gas-price 150000000000
  * @dev Optionally can change `--with-gas-price` to something more reasonable
  */
 contract DeployDeployerScript is Script, ContractNames, SepoliaAddresses {

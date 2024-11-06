@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.21;
 
-import {DeployArcticArchitecture, ERC20, Deployer} from "script/ArchitectureDeployments/DeployArcticArchitecture.sol";
+import {DeployArcticArchitecture, ERC20, Deployer} from "script/DeployArcticArchitecture.sol";
 import {AddressToBytes32Lib} from "src/helper/AddressToBytes32Lib.sol";
 import {MainnetAddresses} from "test/resources/MainnetAddresses.sol";
 
@@ -9,7 +9,7 @@ import {MainnetAddresses} from "test/resources/MainnetAddresses.sol";
 import {LizardDecoderAndSanitizer} from "src/base/DecodersAndSanitizers/LizardDecoderAndSanitizer.sol";
 
 /**
- *  source .env && forge script script/ArchitectureDeployments/Mainnet/DeployLizard.s.sol:DeployLizardScript --with-gas-price 3000000000 --broadcast --etherscan-api-key $ETHERSCAN_KEY --verify
+ *  source .env && forge script script/mainnet/DeployLizard.s.sol:DeployLizardScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify --slow # --evm-version london --with-gas-price 150000000000
  * @dev Optionally can change `--with-gas-price` to something more reasonable
  */
 contract DeployLizardScript is DeployArcticArchitecture, MainnetAddresses {
