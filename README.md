@@ -53,12 +53,12 @@ Run the following command to deploy the mock tokens:
 source .env && forge script script/sepolia/DeployMockToken.s.sol:DeployMockTokenScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify # --evm-version london --with-gas-price 150000000000
 ```
 
-In the deployment script [MockToken.s.sol](./test/mocks/MockToken.s.sol), the `WETH` contract is imported from solmate library and must be deployed for future usage, while the other token contracts like `MockWBTC`, `MockTBTC`, and `MockCBBTC` are just some mock tokens which will be used in Lorenzo vault. These token contracts can be found in [MockToken.sol](./src/mock/MockToken.sol), and you can remove them or replace with other mock tokens.
+In the deployment script [MockToken.s.sol](./script/sepolia/DeployMockToken.s.sol), the `WETH` contract is imported from solmate library and must be deployed for future usage, while the other token contracts like `MockWBTC`, `MockTBTC`, and `MockCBBTC` are just some mock tokens which will be used in Lorenzo vault. These token contracts can be found in [MockToken.sol](./src/mock/MockToken.sol), and you can remove them or replace with other mock tokens.
 
 
 ### 2.2 (**Testnet-Only**) Fill the token address variables
 
-The token addresses are stored in [SepoliaAddresses.sol](./src/constants/SepoliaAddresses.sol), you need to fill in the addresses for the mock tokens after deploying them. Meanwhile, the real token addresses on mainnet are stored in [MainnetAddresses.sol](./src/constants/MainnetAddresses.sol), and you can directly use them.
+The token addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol), you need to fill in the addresses for the mock tokens after deploying them. Meanwhile, the real token addresses on mainnet are stored in [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), and you can directly use them.
 
 
 ### 2.3 Deploy the `Deployer` contract
@@ -76,7 +76,7 @@ source .env && forge script script/mainnet/DeployDeployer.s.sol:DeployDeployerSc
 
 ### 2.4 Fill the deployer address variables
 
-The deployer address and some other manager addresses are stored in [SepoliaAddresses.sol](./src/constants/SepoliaAddresses.sol) and [MainnetAddresses.sol](./src/constants/MainnetAddresses.sol), you also need to fill them after deploying the `Deployer` contract. It contains:
+The deployer address and some other manager addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol) and [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), you also need to fill them after deploying the `Deployer` contract. It contains:
 
 - `deployerAddress`: the address of the deployer contract, which is the one you just deployed.
 - `dev0Address` & `dev1Address`: the addresses with some authority. In boring-vault, there are about 10 roles in total, including `MANAGER_ROLE`, `MINTER_ROLE`, `BURNER_ROLE`, `MANAGER_INTERNAL_ROLE`, `SOLVER_ROLE`, `OWNER_ROLE`, `MULTISIG_ROLE`, `STRATEGIST_MULTISIG_ROLE`, `STRATEGIST_ROLE`, `UPDATE_EXCHANGE_RATE_ROLE`. It's hard to manage them at first, so you can assign them to the same address before knowing how to manage them.
@@ -92,12 +92,12 @@ For convenience, you can just set all of these addresses (besides `deployerAddre
 
 ### 3.1 Manage initial assets
 
-To manage the initial assets which are allowed to be deposited or withdrawn, you need to fill in the `depositAssets` and `withdrawAssets` arrays in the deployment script at [DeployLizard.s.sol](./script/ArchitectureDeployments/Sepolia/DeployLizard.s.sol#L76).
+To manage the initial assets which are allowed to be deposited or withdrawn, you need to fill in the `depositAssets` and `withdrawAssets` arrays in the deployment script at [DeployLizard.s.sol](./script/Sepolia/DeployLizard.s.sol#L76).
 
 
 ### 3.2 Deploy the `Lizard` core contract
 
-The deployment script for the `Lizard` contract is [DeployLizard.s.sol](./script/ArchitectureDeployments/Sepolia/DeployLizard.s.sol). Run the following command to deploy it:
+The deployment script for the `Lizard` contract is [DeployLizard.s.sol](./script/Sepolia/DeployLizard.s.sol). Run the following command to deploy it:
 
 ```bash
 # For testnet (Sepolia)
