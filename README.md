@@ -61,7 +61,7 @@ In the deployment script [DeployMockToken.s.sol](./script/sepolia/DeployMockToke
 The token addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol), you need to fill in the addresses for the mock tokens after deploying them. Meanwhile, the real token addresses on mainnet are stored in [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), and you can directly use them.
 
 
-### 2.3 Fill the deployer address variables
+### 2.3 Fill the address variables
 
 The manager addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol) and [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), you need to fill them before deploying the `Deployer` contract. It contains:
 
@@ -94,12 +94,12 @@ After deploying the `Deployer` contract, you need to fill in the `deployerAddres
 
 ### 3.1 Manage initial assets
 
-To manage the initial assets which are allowed to be deposited or withdrawn, you need to fill in the `depositAssets` and `withdrawAssets` arrays in the deployment script at [DeployLizard.s.sol](./script/Sepolia/DeployLizard.s.sol#L76).
+To manage the initial assets which are allowed to be deposited or withdrawn, you need to fill in the `depositAssets` and `withdrawAssets` arrays in the deployment script at [DeployLizard.s.sol](./script/sepolia/DeployLizard.s.sol#L76).
 
 
 ### 3.2 Deploy the `Lizard` core contract
 
-The deployment script for the `Lizard` contract is [DeployLizard.s.sol](./script/Sepolia/DeployLizard.s.sol). Run the following command to deploy it:
+The deployment script for the `Lizard` contract is [DeployLizard.s.sol](./script/sepolia/DeployLizard.s.sol). Run the following command to deploy it:
 
 ```bash
 # For testnet (Sepolia)
