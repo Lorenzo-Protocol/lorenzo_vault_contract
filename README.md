@@ -61,7 +61,18 @@ In the deployment script [DeployMockToken.s.sol](./script/sepolia/DeployMockToke
 The token addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol), you need to fill in the addresses for the mock tokens after deploying them. Meanwhile, the real token addresses on mainnet are stored in [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), and you can directly use them.
 
 
-### 2.3 Deploy the `Deployer` contract
+### 2.3 Fill the deployer address variables
+
+The manager addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol) and [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), you need to fill them before deploying the `Deployer` contract. It contains:
+
+- `dev0Address` & `dev1Address`: the addresses with some authority. In boring-vault, there are about 10 roles in total, including `MANAGER_ROLE`, `MINTER_ROLE`, `BURNER_ROLE`, `MANAGER_INTERNAL_ROLE`, `SOLVER_ROLE`, `OWNER_ROLE`, `MULTISIG_ROLE`, `STRATEGIST_MULTISIG_ROLE`, `STRATEGIST_ROLE`, `UPDATE_EXCHANGE_RATE_ROLE`. It's hard to manage them at first, so you can assign them to the same address before knowing how to manage them.
+- `liquidPayoutAddress`: the address of the liquid payout contract.
+- `uniswapV3NonFungiblePositionManager`: the address of the Uniswap V3 non-fungible position manager.
+
+For convenience, you can just set all of these addresses (besides `deployerAddress`) to the same address, and change them later.
+
+
+### 2.4 Deploy the `Deployer` contract
 
 [Deployer.sol](./src/helper/Deployer.sol) is a contract that will be used to deploy the core contracts. Run the following command to deploy it:
 
@@ -73,17 +84,8 @@ source .env && forge script script/sepolia/DeployDeployer.s.sol:DeployDeployerSc
 source .env && forge script script/mainnet/DeployDeployer.s.sol:DeployDeployerScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify --slow # --evm-version london --with-gas-price 150000000000
 ```
 
+After deploying the `Deployer` contract, you need to fill in the `deployerAddress` in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol) or [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol) with the address of the `Deployer` contract.
 
-### 2.4 Fill the deployer address variables
-
-The deployer address and some other manager addresses are stored in [SepoliaAddresses.sol](./test/resources/SepoliaAddresses.sol) and [MainnetAddresses.sol](./test/resources/MainnetAddresses.sol), you also need to fill them after deploying the `Deployer` contract. It contains:
-
-- `deployerAddress`: the address of the deployer contract, which is the one you just deployed.
-- `dev0Address` & `dev1Address`: the addresses with some authority. In boring-vault, there are about 10 roles in total, including `MANAGER_ROLE`, `MINTER_ROLE`, `BURNER_ROLE`, `MANAGER_INTERNAL_ROLE`, `SOLVER_ROLE`, `OWNER_ROLE`, `MULTISIG_ROLE`, `STRATEGIST_MULTISIG_ROLE`, `STRATEGIST_ROLE`, `UPDATE_EXCHANGE_RATE_ROLE`. It's hard to manage them at first, so you can assign them to the same address before knowing how to manage them.
-- `liquidPayoutAddress`: the address of the liquid payout contract.
-- `uniswapV3NonFungiblePositionManager`: the address of the Uniswap V3 non-fungible position manager.
-
-For convenience, you can just set all of these addresses (besides `deployerAddress`) to the same address, and change them later.
 
 <br>
 
