@@ -5,10 +5,10 @@ import {ERC20} from "@solmate/tokens/ERC20.sol";
 
 contract SepoliaAddresses {
     // Deployer
-    address public deployerAddress = 0x1C1F0657D9Dc486997ceB7c5599CA0e2515Ee81a;
-    address public dev0Address = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
-    address public dev1Address = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
-    address public liquidPayoutAddress = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
+    address public deployerAddress = 0x0000000000000000000000000000000000000000;
+    address public dev0Address = 0x0000000000000000000000000000000000000000;
+    address public dev1Address = 0x0000000000000000000000000000000000000000;
+    address public liquidPayoutAddress = 0x0000000000000000000000000000000000000000;
 
     address public balancerVault = 0x0000000000000000000000000000000000000000; // Padding
 
@@ -22,5 +22,5 @@ contract SepoliaAddresses {
     ERC20 public DAI = ERC20(0xf4baC583833A750b058Bc09ECb103b6CD814B02c);
 
     // Uniswap V3
-    address public uniswapV3NonFungiblePositionManager = 0x7b7C993c3c283aaca86913e1c27DB054Ce5fA143;
+    address public uniswapV3NonFungiblePositionManager = 0x0000000000000000000000000000000000000000;
 }

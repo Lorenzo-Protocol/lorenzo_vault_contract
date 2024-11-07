@@ -53,7 +53,7 @@ Run the following command to deploy the mock tokens:
 source .env && forge script script/sepolia/DeployMockToken.s.sol:DeployMockTokenScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify # --evm-version london --with-gas-price 150000000000
 ```
 
-In the deployment script [MockToken.s.sol](./script/sepolia/DeployMockToken.s.sol), the `WETH` contract is imported from solmate library and must be deployed for future usage, while the other token contracts like `MockWBTC`, `MockTBTC`, and `MockCBBTC` are just some mock tokens which will be used in Lorenzo vault. These token contracts can be found in [MockToken.sol](./src/mock/MockToken.sol), and you can remove them or replace with other mock tokens.
+In the deployment script [DeployMockToken.s.sol](./script/sepolia/DeployMockToken.s.sol), the `WETH` contract is imported from solmate library and must be deployed for future usage, while the other token contracts like `MockWBTC`, `MockTBTC`, and `MockCBBTC` are just some mock tokens which will be used in Lorenzo vault. These token contracts can be found in [MockToken.sol](./src/mock/MockToken.sol), and you can remove them or replace with other mock tokens.
 
 
 ### 2.2 (**Testnet-Only**) Fill the token address variables
@@ -63,7 +63,7 @@ The token addresses are stored in [SepoliaAddresses.sol](./test/resources/Sepoli
 
 ### 2.3 Deploy the `Deployer` contract
 
-[Deployer](./src/helper/Deployer.sol) is a contract that will be used to deploy the core contracts. Run the following command to deploy it:
+[Deployer.sol](./src/helper/Deployer.sol) is a contract that will be used to deploy the core contracts. Run the following command to deploy it:
 
 ```bash
 # For testnet (Sepolia)
