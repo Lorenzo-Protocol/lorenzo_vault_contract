@@ -103,10 +103,10 @@ The deployment script for the `Lizard` contract is [DeployLizard.s.sol](./script
 
 ```bash
 # For testnet (Sepolia)
-source .env && forge script script/sepolia/DeployLizard.s.sol:DeployLizardScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify --slow # --evm-version london --with-gas-price 150000000000
+source .env && forge script script/sepolia/DeployLizard.s.sol:DeployLizardScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify # --evm-version london --with-gas-price 150000000000
 
 # For mainnet
-source .env && forge script script/mainnet/DeployLizard.s.sol:DeployLizardScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify --slow # --evm-version london --with-gas-price 150000000000
+source .env && forge script script/mainnet/DeployLizard.s.sol:DeployLizardScript --etherscan-api-key $ETHERSCAN_KEY --broadcast --verify # --evm-version london --with-gas-price 150000000000
 ```
 
 The detail of the deployment can be found in at `./broadcast/DeployLizard.s.sol`, and the contract addresses are stored in `./deployments/LizardDeployment.json`.
